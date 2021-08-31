@@ -39,6 +39,10 @@ class FoodItem{
 
 	}
 
+	public boolean isHealthyFatPercent(double fatCalPer){
+		return fatCalPer <= 30;
+	}
+
 }
 
 
@@ -68,7 +72,7 @@ public class Main {
 							+String.format("%.2f", fatCalPer)
 							+" % of calories that comes from fat.");
 
-		if(fatCalPer <= 30){
+		if(foodObj.isHealthyFatPercent(fatCalPer)){
 			System.out.println("This item is Heart Healthy!");
 		}
 		else{
