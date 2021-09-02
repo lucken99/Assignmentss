@@ -1,15 +1,3 @@
-final class Fat{
-	private final double fatInGrams;
-
-	public Fat(double fatInGrams){
-		this.fatInGrams = fatInGrams;
-	}
-
-	public double getFatInGrams(){
-		return this.fatInGrams;
-	}
-}
-
 final class FoodItem{
 	private final int GRAM_TO_CAL_CONVERSION_FACTOR = 9;
 	private final double PERCENT = 100.0;
