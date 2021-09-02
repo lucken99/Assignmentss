@@ -32,10 +32,8 @@ final class FoodItem{
 		return (((this.fatObj.getFatInGrams() * this.GRAM_TO_CAL_CONVERSION_FACTOR) / this.totalCalories) * this.PERCENT);
 
 	}
+
 	public boolean isHealthyFatPercent(){
 		return calculateFatCalPercent() <= this.HEALTHY_FAT_LIMIT;
 	}
-
-
-
 }
