@@ -1,20 +1,36 @@
-final class FoodItem{
+final class Fat{
+	private final double fatInGrams;
 
-	final private String foodName;
-	final private double fatInGrams;
-	final private int totalCalories;
+	public Fat(double fatInGrams){
+		this.fatInGrams = fatInGrams;
+	}
+
+	public double getFatInGrams(){
+		return this.fatInGrams;
+	}
+}
+
+final class FoodItem{
+	private final int GRAM_TO_CAL_CONVERSION_FACTOR = 9;
+	private final double PERCENT = 100.0;
+	private final int HEALTHY_FAT_LIMIT = 30;
+	
+	private final String foodName;
+	private final Fat fatObj;
+	private final int totalCalories;
 
 	public FoodItem(String foodName, double fatInGrams, int totalCalories){
+		assert totalCalories > 0 : "Please provide valid calories.";
 		this.foodName = foodName;
-		this.fatInGrams = fatInGrams;
+		this.fatObj = new Fat(fatInGrams);
 		this.totalCalories = totalCalories;
 	}
 	public String getFoodName(){
 		return this.foodName;
 	}
 
-	public double getFatInGrams(){
-		return this.fatInGrams;
+	public Fat getFatObj(){
+		return this.fatObj;
 	}
 
 	public int getTotalCalories(){
@@ -22,13 +38,16 @@ final class FoodItem{
 	}
 
 	public double calculateFatCalPercent(){
-		int gramToCalFactor = 9;
-		return ((this.fatInGrams * gramToCalFactor * 100.0) / this.totalCalories);
+		if (this.totalCalories == 0){
+			return  0;
+		}
+		return (((this.fatObj.getFatInGrams() * this.GRAM_TO_CAL_CONVERSION_FACTOR) / this.totalCalories) * this.PERCENT);
 
 	}
-
 	public boolean isHealthyFatPercent(){
-		return this.calculateFatCalPercent() <= 30;
+		return calculateFatCalPercent() <= this.HEALTHY_FAT_LIMIT;
 	}
+
+
 
 }

@@ -15,9 +15,8 @@ public class Main {
 
 		FoodItem foodObj = new FoodItem(foodName, fatInGrams, totalCalories);
 
-		double fatCalPer = foodObj.calculateFatCalPercent();
 		System.out.println(foodObj.getFoodName()+" has "
-							+String.format("%.2f", fatCalPer)
+							+String.format("%.2f", foodObj.calculateFatCalPercent())
 							+" % of calories that comes from fat.");
 
 		if(foodObj.isHealthyFatPercent()){
