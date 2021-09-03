@@ -8,7 +8,7 @@ final class FoodItem{
 	private final int totalCalories;
 
 	public FoodItem(String foodName, double fatInGrams, int totalCalories){
-		assert totalCalories < 0 : "Please provide valid calories.";
+		assert totalCalories > 0 : "Please provide valid calories.";
 		this.foodName = foodName;
 		this.fatObj = new Fat(fatInGrams);
 		this.totalCalories = totalCalories;
