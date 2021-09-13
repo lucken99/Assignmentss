@@ -1,0 +1,113 @@
+* {
+    box-sizing: border-box;
+}
+.header {
+    background-color: #26d9ac;
+    min-height: 50px;
+    color: white;
+    padding: 10px;
+}
+
+.main {
+    padding: 5px;
+    border-color: black;
+    border-left: ridge;
+    border-right: ridge
+    
+}
+
+.footer {
+    background-color: #1fd1a4;
+    color: white;
+    min-height: 20px;
+}
+
+p.footer {
+    font-size: 12px;
+    font-weight: bold;
+ }
+
+ .col {
+     margin: 50px;
+ }
+ 
+.main-row {
+    margin: 5px;
+    padding: 20px;
+}
+
+.form-col {
+    padding-top: 20px;
+}
+ .info-col {
+     border-left: 2px solid #1fd1a4;
+     padding-left: 50px;
+     padding-right: 20px;
+     padding-bottom: 50px;
+ }
+ .info-col-heading {
+    text-align: center;
+    margin-bottom: 30px;
+ }
+ .table-responsive {
+     max-height: 200px;
+ }
+
+ table{
+    border: 2px solid rgba(142, 201, 4, 0.61)!important;
+    /* margin-top: 30px !important; */
+    /* margin-left: 40px; */
+    /* width: 80%!important; */
+}
+table#studentTable  thead{
+    background-color: rgba(142, 201, 4, 0.61)!important;
+    color: white;
+    font-size:bold;
+}
+
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+table tbody:last-child tr {
+  background: white;
+  animation: fade 2s;
+}
+table#studentTable tr:nth-child(even) {
+  background-color: #ecf7d0 ;
+}
+
+#labelName {
+    color: red;
+}
+
+td img{
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    width: 100px;
+}
+.description {
+    width: 70%;
+}
+/* td.description {
+    height: 50px;
+} */
+/*
+th.description, th.img-info {
+    color: white;
+    background-color: #99cc00;
+}
+.t-rows    {
+    height: 50%;
+}
+tr {
+    padding-bottom: 0;
+}
+
+
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: #ecffb3; 
+ } */
