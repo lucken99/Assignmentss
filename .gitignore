@@ -1,3 +1,5 @@
 #Ignore .class files
 *.class
-/.idea
+*/.idea
+data_structures//*.idea
+data_structures/*.iml
