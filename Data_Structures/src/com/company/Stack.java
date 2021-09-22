@@ -10,7 +10,7 @@ public class Stack<T> implements Iterable {
 
     public Stack(int capacity){
         this.capacity = capacity;
-        data = new Object[size];
+        data = new Object[capacity];
     }
 
     public int size() {
@@ -60,16 +60,16 @@ public class Stack<T> implements Iterable {
     @Override
     public java.util.Iterator<T> iterator() {
         return new java.util.Iterator<T>() {
-            private int pos = 0;
+            private int pos = size - 1;
 
             @Override
             public boolean hasNext() {
-                return size > pos;
+                return pos >= 0;
             }
 
             @Override
             public T next() {
-                return (T) data[pos++];
+                return (T) data[pos--];
             }
 
             public void remove() {
@@ -82,13 +82,13 @@ public class Stack<T> implements Iterable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[ ");
-        int i = 0;
-        while (i < size) {
+        int i = size-1;
+        while (i >= 0) {
             sb.append(data[i]);
-            if (i == size - 1) {
+            if (i != 0) {
                 sb.append(", ");
             }
-            i++;
+            i--;
         }
         sb.append(" ]");
         return sb.toString();
