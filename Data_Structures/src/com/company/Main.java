@@ -43,6 +43,14 @@ public class Main {
         q.reverse();
         System.out.println(q);
 
+        PriorityQueue<String> pq = new PriorityQueue<String>();
+        pq.enqueue(10, "lalit");
+        pq.enqueue(8, "kartik");
+        pq.enqueue(4, "rohit");
+        pq.enqueue(1, "jhgff");
+        System.out.println(pq);
+
+
 
         HashTable<Integer, String> ht = new HashTable<Integer, String>();
         ht.insert(1, "lucky");
