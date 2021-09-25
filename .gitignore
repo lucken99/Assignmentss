@@ -1,5 +1,5 @@
 #Ignore .class files
 *.class
 */.idea
-data_structures//*.idea
-data_structures/*.iml
+target
+*.iml
