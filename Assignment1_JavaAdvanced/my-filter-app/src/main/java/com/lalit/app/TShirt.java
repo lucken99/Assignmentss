@@ -1,31 +1,30 @@
 package com.lalit.app;
 
-import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvBindByPosition;
-public class TShirt {
+public class TShirt implements Comparable<TShirt>{
 
-    @CsvBindByPosition(position = 0)
+    @CsvBindByPosition(position = 0, required = true)
     private String id;
 
-    @CsvBindByPosition(position = 1)
+    @CsvBindByPosition(position = 1, required = true)
     private String name;
 
-    @CsvBindByPosition(position = 2)
+    @CsvBindByPosition(position = 2, required = true)
     private String colour;
 
-    @CsvBindByPosition(position = 3)
+    @CsvBindByPosition(position = 3, required = true)
     private String genderRecommended;
 
-    @CsvBindByPosition(position = 4)
+    @CsvBindByPosition(position = 4, required = true)
     private String size;
 
-    @CsvBindByPosition(position = 5)
+    @CsvBindByPosition(position = 5, required = true)
     private double price;
 
-    @CsvBindByPosition(position = 6)
+    @CsvBindByPosition(position = 6, required = true)
     private double rating;
 
-    @CsvBindByPosition(position = 7)
+    @CsvBindByPosition(position = 7, required = true)
     private String availability;
 
     public String getId() {
@@ -104,5 +103,10 @@ public class TShirt {
                 ", rating=" + rating +
                 ", availability='" + availability + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(TShirt tshirt) {
+        return Double.compare(this.getPrice(), tshirt.getPrice());
     }
 }
