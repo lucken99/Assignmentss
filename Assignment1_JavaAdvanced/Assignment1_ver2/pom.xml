@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.lalit</groupId>
+  <artifactId>my-search-app</artifactId>
+  <version>2.0-SNAPSHOT</version>
+
+  <!-- Source option 5 is no longer supported. Use 6 or later.
+  [ERROR] Target option 1.5 is no longer supported. Use 1.6 or later. -->
+ <!--  adding the maven.compiler.source and target removes the upper error -->
+  <properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+  </properties>
+  <dependencies>
+      <dependency>
+          <groupId>com.opencsv</groupId>
+          <artifactId>opencsv</artifactId>
+          <version>5.5</version>
+      </dependency>
+  </dependencies>
+
+
+
+  <!-- for Fat JAR or jar-with-dependencies,
+  configure maven-assembly-plugin -->
+  <build>
+    <finalName>my-search-app</finalName>
+    <plugins>
+
+      <!-- <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.6.1</version>
+          <configuration>
+              <source>11</source>
+              <target>11</target>
+          </configuration>
+      </plugin> -->
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.1.1</version>
+
+        <configuration>
+            <descriptorRefs>
+                <descriptorRef>jar-with-dependencies</descriptorRef>
+            </descriptorRefs>
+        </configuration>
+
+        <executions>
+            <execution>
+                <id>make-assembly</id>
+                <phase>package</phase>
+                <goals>
+                    <goal>single</goal>
+                </goals>
+            </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
