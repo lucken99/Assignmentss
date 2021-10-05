@@ -46,7 +46,6 @@ public class CSVHandlerThread implements Runnable {
 			File file = new File( dirPath );
 			List<String> updatedFiles = new ArrayList<>();
 			String[] filenames = file.list();
-			System.out.println(filenames);
 
 			if (filenames != null)
 			for ( String currFile : filenames ) {

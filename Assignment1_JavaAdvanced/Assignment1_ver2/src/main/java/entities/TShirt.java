@@ -84,8 +84,8 @@ public class TShirt implements Comparable<TShirt>{
         this.rating = rating;
     }
 
-    public String getAvailability() {
-        return availability;
+    public boolean getAvailability() {
+        return availability.equalsIgnoreCase("y");
     }
 
     public void setAvailability(String availability) {

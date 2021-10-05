@@ -7,6 +7,8 @@ import datastructures.TShirtData;
 import java.util.List;
 import java.util.Scanner;
 
+import static datastructures.TShirtData.orderBy;
+
 public class App {
 	public static void main( String[] args ) {
 		try {
@@ -33,11 +35,12 @@ public class App {
 
 				TShirtData singleton = TShirtData.getInstance();
 				List<TShirt> tShirts = singleton.getRequiredTShirts(colour, gender, size);
+				orderBy(tShirts, outputPreference);
 				System.out.println(tShirts);
 
 				System.out.println("Search more ??: Y or N");
 				if ( sc.nextLine().equalsIgnoreCase("n") )
-					break;
+					System.exit(1);
 			}
 		} catch (Exception e) {
 			System.out.println("Error while reading input!");
