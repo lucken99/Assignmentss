@@ -88,6 +88,7 @@ public class CSVHandlerThread implements Runnable{
                 }
             } catch ( Exception e ) {
                 System.out.println("Error");
+                e.printStackTrace();
             }
         }
     }
