@@ -1,7 +1,8 @@
 package com.lalit;
 
+// java 8 not used
 public class Queue<T> implements Iterable<T> {
-    private Object[] data;
+    private Object[] data;// generic not used fully here
     private int front;
     private int rear;
 
@@ -19,6 +20,7 @@ public class Queue<T> implements Iterable<T> {
         rear = adjustsIndex(rear, data.length);
     }
 
+// Optional can be returned here
     public T dequeue() {
         if (isEmpty()) {
             throw new RuntimeException("Queue is empty!");
@@ -37,7 +39,7 @@ public class Queue<T> implements Iterable<T> {
 
     public boolean contains(T elem) {
         for (int i = front; i <= rear; i++) {
-            if (elem == data[i]) {
+            if (elem == data[i]) {// equals should be used instead of ==
                 return true;
             }
         }
@@ -52,6 +54,7 @@ public class Queue<T> implements Iterable<T> {
         }
     }
 
+//why does a size method adjusts indexes? Sounds confusing to me
     public int size() {
         return adjustsIndex(rear + data.length - front, data.length);
     }
@@ -68,6 +71,7 @@ public class Queue<T> implements Iterable<T> {
         return (front + data.length - rear) % data.length == 1;
     }
 
+// could have created your own interface
     @Override
     public java.util.Iterator<T> iterator() {
         return new java.util.Iterator<T>() {
