@@ -23,7 +23,7 @@ public class HibernateUserUtil {
                 settings.put(Environment.URL, "jdbc:mysql://localhost:3306/ebookshop");
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "root");
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
 
                 settings.put(Environment.SHOW_SQL, "true");
 
@@ -40,6 +40,7 @@ public class HibernateUserUtil {
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
                 return sessionFactory;
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("Error while connecting to database");
             }
 

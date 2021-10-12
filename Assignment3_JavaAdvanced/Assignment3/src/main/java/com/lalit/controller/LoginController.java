@@ -50,7 +50,7 @@ public class LoginController extends HttpServlet {
 
         if (loginDao.validate(username, password)) {
             HttpSession session = request.getSession();
-            session.setAttribute("username", username);
+            session.setAttribute("userName", username);
             response.sendRedirect("productsUtil.jsp");
         } else {
             response.sendRedirect("error.jsp");
