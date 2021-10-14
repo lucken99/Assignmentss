@@ -1,5 +1,5 @@
-<%@page import="com.lalit.dao.ProductDao"%>
-<%@page import="com.lalit.model.Product"%>
+<%@page import="com.nagarro.dao.UserProductDao"%>
+<%@page import="com.nagarro.model.UserProduct"%>
 <%@page import="java.util.*" %>
 <%@page import="java.io.File"%>
 <%@page import="javax.servlet.http.HttpSession"%>
@@ -9,20 +9,20 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Edit Product</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<%
 	int id =Integer.parseInt(request.getParameter("id"));
-		ProductDao productDao=new ProductDao();
-		List<ProductDao> ProductList=productDao.getProductDetailViaId(id);
+		UserProductDao userProductDao=new UserProductDao();
+		List<UserProduct> userProductList=userProductDao.getImageDetailViaId(id);
 		session=request.getSession();
 		session.setAttribute("userId", id);
-		for (ProductDao data : ProductList) {
-			String imgScr="Assignment3\\imgAdd"+File.separator+Integer.toString(data.getId())+".png";
+		for (UserProduct data : userProductList) {
+			String imgScr="D:\\addImg"+File.separator+data.getProductTitle();
 	%>
 	<div class="container-fluid" style="margin-left:50px;">
-
+		
 				<header>
 					<h2>Edit Image data</h2>
 				</header>
@@ -33,11 +33,11 @@
 						<%-- <input type="text" name="n1" value="<%=data.getImageName()%>" required />
 						 --%><input type="file" name="file" accept="image/png, image/jpg, image/jpeg">
 						<input type="submit">
-						<a href="loginSuccess.jsp"><button type="button">Cancel</button> </a>
+						<a href="ProductPage.jsp"><button type="button">Cancel</button> </a>
 					</div>
 				</form>
 			</div>
-
+		
 	<%
 	}
 	%>
