@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Available TShirts</title>
+</head>
+<body>
+<div align="center">
+
+    <h1>Available TShirts</h1>
+
+    <br/><br/>
+    <br/><br/>
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Gender Recommended</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${listTShirst}">
+            <td th:text="${product.id}">Product ID</td>
+            <td th:text="${product.name}">Name</td>
+            <td th:text="${product.colour}">Color</td>
+            <td th:text="${product.genderRecommendation}">Gender</td>
+            <td th:text="${product.size}">Size</td>
+            <td th:text="${product.price}">Price</td>
+            <td th:text="${product.rating}">rating</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/search_tshirts}]]";
+	}
+</script>
+</body>
+</html>
