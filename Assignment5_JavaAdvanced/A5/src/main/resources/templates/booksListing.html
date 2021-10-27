@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+  <title>Books</title>
+  <style>h1 {text-align: center;}</style>
+	</head>
+		<h1>Books Listing</h1>
+		<form method="POST" th:action="@{/logout}">
+ 		<input type="submit" value="Logout"/>
+		</form>
+		<form th:action="@{/add}" >	
+          	<input type="submit" class="button-primary" value="Add a Book" />
+    	</form>
+	<body>
+  <div class="container">
+      <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Book Code</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+       
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.bookCode}">Book Code</td>
+            <td th:text="${book.bookName}">Book Name</td>
+            <td th:text="${book.author}">Author</td>
+            <td th:text="${book.dateAdded}">Date Added</td>
+            <td>
+            	<form th:action="@{/edit}" th:object="${book}">
+            		<input type="submit" value="Edit" />
+            	</form>
+            	<form th:method="delete"  th:action="@{/delete}">
+            		<input type="hidden" name="bookCode" th:value="${book.bookCode}" />	
+            		<button class="button" type="submit">Delete</button>
+            	</form>
+            </td>
+			
+        </tr>
+        </tbody>
+    </table>
+  </div>
+</body>
+</html>

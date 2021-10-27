@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+	 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+	 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+	 <title>Add Book Details</title>
+	 <style>h1 {text-align: center;}</style>
+</head>
+<body>
+	<form method="POST" th:action="@{/add}" th:object="${newBook}">
+	<div>Book Code: <input type="text" th:field="*{bookCode}" required /></div>
+	<div>Book Name: <input type="text" required th:field="*{bookName}" /></div>
+	<div>Author: <select  id="inputGroupSelect02" name='select' required th:field="*{author}">
+			<option value="" hidden selected>Choose Author</option>
+			<option value="Robert Cecil">Robert Cecil</option>
+			<option value="Andy Hunt">Andy Hunt</option>
+			<option value="Erich Gamma">Erich Gamma</option>
+			<option value="E.M.Forster">E.M.Forster</option>
+			</select></div>
+	<div>Date Added: <input type="date" th:field="*{dateAdded}" required/></div>
+	<input type="submit" value="Add"/>
+	<button type="reset"  >Cancel</button>
+	</form>
+</body>
