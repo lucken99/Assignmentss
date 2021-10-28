@@ -20,6 +20,8 @@
 			</select></div>
 	<div>Date Added: <input type="date" th:field="*{dateAdded}" required/></div>
 	<input type="submit" value="Add"/>
-	<button type="reset"  >Cancel</button>
 	</form>
+	<form method="get" th:action="@{/manage-books}">
+ 		<input type="submit" value="Cancel"/>
+		</form>
 </body>

@@ -40,4 +40,8 @@ public class BookServiceImpl {
 	public void delete(Long bookCode) {
 		restTemplate.delete(idResource, bookCode);
 	}
+	
+	public Book findByBookCode(Long bookCode) {
+		return restTemplate.getForObject(idResource, Book.class, bookCode);
+	}
 }

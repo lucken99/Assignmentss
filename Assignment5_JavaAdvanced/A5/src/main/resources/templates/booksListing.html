@@ -34,7 +34,7 @@
             <td th:text="${book.author}">Author</td>
             <td th:text="${book.dateAdded}">Date Added</td>
             <td>
-            	<form th:action="@{/edit}" th:object="${book}">
+            	<form th:method="get" th:action="@{/edit/{bookCode}(bookCode=${book.bookCode})}">
             		<input type="submit" value="Edit" />
             	</form>
             	<form th:method="delete"  th:action="@{/delete}">
