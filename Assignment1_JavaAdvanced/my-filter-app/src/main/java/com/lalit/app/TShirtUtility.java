@@ -53,6 +53,8 @@ public class TShirtUtility {
                 && x.getSize().equalsIgnoreCase(size)
                 && x.getGenderRecommended().equalsIgnoreCase(gender);
     }
+    
+    // comaprator chaining can be used here
 
     public static void orderBy(List<TShirt> tShirts, String preference) {
         if (preference.equalsIgnoreCase("price")) {
