@@ -24,6 +24,7 @@ public class CSVHandlerThread implements Runnable {
 	@Override
 	public void run() {
 		csvListWithTime = new HashMap<>();
+		// use executor service
 		while ( true ) {
 			try {
 				/*
@@ -51,14 +52,14 @@ public class CSVHandlerThread implements Runnable {
 			for ( String currFile : filenames ) {
 				if ( currFile.endsWith(".csv") ) {
 					if ( !csvListWithTime.containsKey(currFile) )  {
-						csvListWithTime.put( currFile, null );
+						csvListWithTime.put( currFile, null );//?? why a null value 
 					}
 
 					Path path = Paths.get( dirPath, currFile);
 					BasicFileAttributes fileAttributes = Files.readAttributes(path, BasicFileAttributes.class);
 
 					if ( csvListWithTime.get( currFile ) == null
-							|| !csvListWithTime.get( currFile ).equals( fileAttributes.lastModifiedTime() ) ) {
+							|| !csvListWithTime.get( currFile ).equals( fileAttributes.lastModifiedTime() ) ) { // formatting
 						updatedFiles.add(currFile);
 						csvListWithTime.put(currFile, fileAttributes.lastModifiedTime());
 					}
