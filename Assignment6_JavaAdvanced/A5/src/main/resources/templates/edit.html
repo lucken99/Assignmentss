@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:400,300,600" />
+	 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/4.0.0/normalize.min.css" />
+	 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+	 <title>Edit Book Details</title>
+	 <style>h1 {text-align: center;}</style>
+</head>
+<body>
+	<form method="post" th:action="@{/edit/{bookCode}(bookCode=${book.bookCode})}" th:object="${book}">
+	<div>Book Code: <input type="text" readonly th:value="${book.bookCode}" name="bookCode" th:field="*{bookCode}" /></div>
+	<div>Book Name: <input type="text" required th:value="${book.bookName}" th:field="*{bookName}" /></div>
+	<div>Author: <select  id="inputGroupSelect02" name='select' required th:value="${book.author}" th:field="*{author}">
+			<option value="" hidden selected>Choose Author</option>
+			<option value="Robert Cecil">Robert Cecil</option>
+			<option value="Andy Hunt">Andy Hunt</option>
+			<option value="Erich Gamma">Erich Gamma</option>
+			<option value="E.M.Forster">E.M.Forster</option>
+			</select></div>
+	<div>Date Added: <input type="text" readonly th:value="${book.dateAdded}" th:field="*{dateAdded}" required/></div>
+	<input type="submit" value="Edit"/>
+	</form>
+	<form method="get" th:action="@{/manage-books}">
+ 		<input type="submit" value="Cancel"/>
+		</form>
+</body>
