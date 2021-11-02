@@ -3,7 +3,8 @@ package com.lalit.app;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.lalit.app.TShirtUtility.*;
+import static com.lalit.app.TShirtUtility.orderBy;
+import static com.lalit.app.TShirtUtility.searchTShirts;
 
 /**
  * Author {
