@@ -1,0 +1,25 @@
+pipeline {
+	agent any
+	stages {
+		stage("Git-Checkout") {
+			steps {
+					echo "Checking out from Git Repo";
+					git credentialsId: '40a31d9a-6548-4044-b8d8-fbdce31e06b7', url: 'https://git.nagarro.com/GITG00641/Java/3175077.git'
+
+			}
+		}
+
+		stage("Build") {
+			steps {
+					echo "changing directory to REST API app"
+					bat 'cd Assignment5_JavaAdvanced\\RestA5'
+					echo "Building the REST API app";
+					bat 'mvn clean package'
+					echo "changing to Assignment5_JavaAdvanced\\A5";
+					bat 'cd ..\\A5'
+					echo "Building the A5";
+					bat 'mvn clean package'
+			}
+		}
+	}
+}
